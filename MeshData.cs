@@ -55,10 +55,8 @@ namespace Yorozu.SimpleMesh
 
 			for (var i = 0; i < polys.Count; i++)
 			{
-				polys[i].IsExpand = EditorGUILayout.Foldout(polys[i].IsExpand, $"Poly{i}");
-				if (!polys[i].IsExpand)
-					continue;
-
+				EditorGUILayout.LabelField($"Poly{i}"); 
+				
 				using (new EditorGUILayout.VerticalScope("Box"))
 				{
 					using (var check = new EditorGUI.ChangeCheckScope())
@@ -248,11 +246,12 @@ namespace Yorozu.SimpleMesh
 		/// </summary>
 		internal void Save()
 		{
-			var path = EditorUtility.SaveFilePanel("Select Mesh Path", "Assets/", "", ".asset");
+			var path = EditorUtility.SaveFilePanelInProject("Select Mesh Path", "Mesh", "asset", "");
 			if (string.IsNullOrEmpty(path))
 				return;
 
-			AssetDatabase.CreateAsset(_mesh, path);
+			var saveMesh = GameObject.Instantiate(_mesh);
+			AssetDatabase.CreateAsset(saveMesh, path);
 			AssetDatabase.Refresh();
 		}
 	}

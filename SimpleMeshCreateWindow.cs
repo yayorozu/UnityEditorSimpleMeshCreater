@@ -39,7 +39,7 @@ namespace Yorozu.SimpleMesh
 		{
 			using (var check = new EditorGUI.ChangeCheckScope())
 			{
-				_material = EditorGUILayout.ObjectField("Material", _material, typeof(Material)) as Material;
+				_material = EditorGUILayout.ObjectField("Material", _material, typeof(Material), false) as Material;
 				if (check.changed)
 				{
 					_data?.SetMaterial(_material);

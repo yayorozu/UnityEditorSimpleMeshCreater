@@ -9,8 +9,6 @@ namespace Yorozu.SimpleMesh
 	internal class Poly
 	{
 		public PolyVertex[] Vertices;
-
-		public bool IsExpand;
 			
 		/// <summary>
 		/// 降順
