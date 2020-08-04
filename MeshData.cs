@@ -119,7 +119,7 @@ namespace Yorozu.SimpleMesh
 
 		internal void OnGUI()
 		{
-			if (GUILayout.Button("Add Vertex"))
+			if (GUILayout.Button("Add Triangle"))
 			{
 				AddPoly();
 			}
