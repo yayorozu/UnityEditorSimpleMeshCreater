@@ -30,14 +30,14 @@ namespace Yorozu.SimpleMesh
 			using (new EditorGUILayout.HorizontalScope())
 				isSkip = DrawVertex(mesh);
 
-			if (!isSkip)
-			{
-				using (new EditorGUILayout.HorizontalScope())
-					DrawUV(mesh);
+			if (isSkip)
+				return;
 
-				using (new EditorGUILayout.HorizontalScope())
-					DrawColor(mesh);
-			}
+			using (new EditorGUILayout.HorizontalScope())
+				DrawUV(mesh);
+
+			using (new EditorGUILayout.HorizontalScope())
+				DrawColor(mesh);
 		}
 
 		private bool DrawVertex(Mesh mesh)
